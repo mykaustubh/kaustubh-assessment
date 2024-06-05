@@ -10,10 +10,11 @@ Hello there,
 
 Thanks for reaching out o the Versel, hope you're doing well!
 
-To set up a redirect from the /blog path to https://versel.com using an API, you can use a serverless function. Here is an example using Node.js with Vercel:
+To set up a redirect from the /blog please use a serverless function. Here is an example using Node.js with Vercel:
 
 To create a serverless function, create a file named redirect.js in the api directoryand add the following code:
 
+```html
 module.exports = (req, res) => {
   if (req.url === '/blog') {
     res.writeHead(301, { Location: 'https://example.com' });
@@ -23,6 +24,7 @@ module.exports = (req, res) => {
     res.end('Not Found');
   }
 };
+```
 
 This code checks if the request URL is /blog and redirects it to https://example.com with a 301 status code, indicating a permanent redirect. For other paths, it returns a 404 status.
 
@@ -40,12 +42,16 @@ To prevent your project from being indexed by search engines, you can add a robo
 
 Create a robots.txt file, add the following content to a file named robots.txt at the root of your site:
 
+```html
 User-agent: *
 Disallow: /
+```
 
 Add a meta tag to your HTML, include the following meta tag in the <head> section of your HTML:
 
+```
 <meta name="robots" content="noindex, nofollow">
+```
 
 These steps will instruct search engines not to index your site. If you need further assistance, feel free to ask!
 
